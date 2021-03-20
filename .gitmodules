@@ -1,0 +1,3 @@
+[submodule "scripts/clementinetextproject_text"]
+	path = scripts/clementinetextproject_text
+	url = https://github.com/theunpleasantowl/clementinetextproject_text.git
