@@ -17,7 +17,7 @@ while IFS=, read -r file book; do
 done < book_metadata.csv
 
 # Remove Potential Stray Characters
-sed -i 's/\\//;s/\r//g' vul.latin1
+sed -i 's/\\//g;s/\///g;s/\r//g' vul.latin1
 # Convert to UTF-8
 iconv -f ISO-8859-1 -t UTF-8 vul.latin1 > vul.tsv
 
