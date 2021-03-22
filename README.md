@@ -47,7 +47,7 @@ If you're not familar with the Vulgate, you may run the `vul` program with the `
 Install `vul` by running:
 
 ```
-git clone https://github.com/theunpleasantowl/vul.git
+git clone https://github.com/theunpleasantowl/vul-complete.git
 cd vul
 sudo make install
 ```
@@ -65,4 +65,4 @@ yay -S vul-complete-git
 
 ## License
 
-The script and text are in the public domain.
+Public domain
