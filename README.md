@@ -47,11 +47,22 @@ If you're not familar with the Vulgate, you may run the `vul` program with the `
 Install `vul` by running:
 
 ```
-git clone https://github.com/theunpleasantowl/vul.git
+git clone https://github.com/theunpleasantowl/vul-complete.git
 cd vul
 sudo make install
 ```
 
+## Arch User Repository
+
+Arch users can install the package from the [AUR](https://aur.archlinux.org/packages/vul-complete-git/).
+
+The package name is `vul-complete-git`. For example, if you have an AUR helper installed you may run:
+
+```
+yay -S vul-complete-git
+```
+
+
 ## License
 
-The script and text are in the public domain.
+Public domain
