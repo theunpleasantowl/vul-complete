@@ -3,8 +3,14 @@
 TEXT_REPO_ADDRESS=https://github.com/theunpleasantowl/clementinetextproject_text.git
 TEXT_REPO_DIR=clementinetextproject_text
 
-rm -rf $TEXT_REPO_DIR
-git clone $TEXT_REPO_ADDRESS
+#rm -rf $TEXT_REPO_DIR
+if [ -e $TEXT_REPO_DIR ]
+then
+	sh -c "cd $PWD/$TEXT_REPO_DIR && git reset HEAD --hard"
+
+else
+	git clone $TEXT_REPO_ADDRESS
+fi
 
 # Remove Tabs in texts and delimit Chapter/Verse/Text by tab
 find ./$TEXT_REPO_DIR -type f -name "*.lat" -exec sed -i 's/\t/:/g;s/:/\t/;s/\ /\t/' "{}" \;
@@ -23,3 +29,5 @@ iconv -f ISO-8859-1 -t UTF-8 vul.latin1 > vul.tsv
 
 # Remove ligatures for better Terminal Compatibility
 sed -i 's/æ/ae/g;s//oe/g' vul.tsv
+# Uncomment in order to keep ligatures
+#sed -i 's//œ/g' vul.tsv
