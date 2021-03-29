@@ -22,6 +22,7 @@ show_help() {
 	echo
 	echo "  -l      list books"
 	echo "  -W      no line wrap"
+	echo "  -g      Disable Latin Ligatures"
 	echo "  -h      show help"
 	echo
 	echo "  Reference types:"
@@ -64,6 +65,9 @@ while [ $# -gt 0 ]; do
 	elif [ "$1" = "-W" ]; then
 		export VUL_NOLINEWRAP=1
 		shift
+	elif [ "$1" = "-g" ]; then
+		VUL_NOLIGATURE=1
+		shift
 	elif [ "$1" = "-h" ] || [ "$isFlag" -eq 1 ]; then
 		show_help
 	else
@@ -92,4 +96,9 @@ if [ $# -eq 0 ]; then
 	exit 0
 fi
 
-get_data vul.tsv 2>/dev/null | awk -v cmd=ref -v ref="$*" "$(get_data vul.awk)" 2>/dev/null | ${PAGER}
+if [ "$VUL_NOLIGATURE" = 1 ]
+then
+	get_data vul.tsv 2>/dev/null | awk -v cmd=ref -v ref="$*" "$(get_data vul.awk)" 2>/dev/null | sed 's/æ/ae/g;s/œ/oe/g' |${PAGER}
+else
+	get_data vul.tsv 2>/dev/null | awk -v cmd=ref -v ref="$*" "$(get_data vul.awk)" 2>/dev/null | ${PAGER}
+fi
