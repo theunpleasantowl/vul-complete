@@ -3,7 +3,6 @@
 TEXT_REPO_ADDRESS=https://github.com/theunpleasantowl/clementinetextproject_text.git
 TEXT_REPO_DIR=clementinetextproject_text
 
-#rm -rf $TEXT_REPO_DIR
 if [ -e $TEXT_REPO_DIR ]
 then
 	sh -c "cd $PWD/$TEXT_REPO_DIR && git reset HEAD --hard"
@@ -28,6 +27,6 @@ sed -i 's/\\//g;s/\///g;s/\r//g' vul.latin1
 iconv -f ISO-8859-1 -t UTF-8 vul.latin1 > vul.tsv
 
 # Remove ligatures for better Terminal Compatibility
-sed -i 's/æ/ae/g;s//oe/g' vul.tsv
+#sed -i 's/æ/ae/g;s//oe/g' vul.tsv
 # Uncomment in order to keep ligatures
-#sed -i 's//œ/g' vul.tsv
+sed -i 's//œ/g' vul.tsv
