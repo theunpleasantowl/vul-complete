@@ -17,6 +17,7 @@ If you're not familar with the Vulgate, you may run the `vul` program with the `
 
       -l      list books
       -W      no line wrap
+      -g      Remove Latin Ligatures
       -h      show help
 
       Reference types:
